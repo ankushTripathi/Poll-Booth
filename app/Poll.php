@@ -8,7 +8,7 @@ use App\PollOptions as Options;
 class Poll extends Model
 {
     //
-    public function pooloptions()
+    public function polloptions()
     {
         $this->hasMany(Options);
     }
