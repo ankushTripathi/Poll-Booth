@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Poll as Poll;
-use Request;
 
 
 class PollsController extends Controller
@@ -15,9 +14,14 @@ class PollsController extends Controller
         return Poll::with('polloptions')->get();
     }
 
-    public function store()
+    public function store(Request $req)
     {
-        $poll = new Poll(Request::all());
+        $data = [
+
+            'title' => $req->title
+
+        ];
+        $poll = new Poll($data);
         $poll->save();
         return $poll;
     }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PollOptions;
-use Request;
 
 class PollOptionsController extends Controller
 {
@@ -14,9 +13,15 @@ class PollOptionsController extends Controller
         return PollOptions::all();
     }
 
-    public function store()
+    public function store(Request $req)
     {
-        $options = new PollOptions(Request::all());
+        $data = [
+            
+            'title' => $req->title,
+            'poll_id' => $req->poll_id
+
+        ];
+        $options = new PollOptions($data);
         $options->save();
         return $options;
     }
@@ -26,12 +31,12 @@ class PollOptionsController extends Controller
         return PollOptions::find($id);
     }
 
-    public function addVote($id)
+    public function update($id)
     {
         $options = PollOptions::find($id);
         $options->vote++;
         $options->save();
-        return $options
+        return $options;
     }
 
     public function destroy($id)

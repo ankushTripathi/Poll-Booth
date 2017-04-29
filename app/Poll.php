@@ -3,13 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\PollOptions as Options;
 
 class Poll extends Model
 {
     //
+        protected $fillable=[
+        'title',
+    ];
+
     public function polloptions()
     {
-        $this->hasMany(Options);
+        return $this->hasMany('App\PollOptions');
     }
 }

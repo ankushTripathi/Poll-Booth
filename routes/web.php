@@ -11,10 +11,10 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('api/poll','PollsController');
-Route::resource('api/polloption','PollOptionsController');
-Route::get('api/polloption/addVote/{$id}','PolloptionsController@addVote');
+Route::resource('api/polls','PollsController');
+Route::resource('api/polloptions','PollOptionsController');
