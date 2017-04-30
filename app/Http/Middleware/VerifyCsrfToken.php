@@ -13,6 +13,6 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         //uncomment when testing with Postman
-        //'api/*'
+        'api/*'
     ];
 }
